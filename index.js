@@ -12,7 +12,7 @@ function promptNumber() {
     return saisie;
 }
 
-/* function didIWin(number) {
+function didIWin(number) {
     let result;
     let message;
     if (number === rightNumber) {
@@ -26,10 +26,14 @@ function promptNumber() {
         result = false;
     } else {} 
     alert(message)
+    console.log(message)
     return result
 }
 
-function gamePlay(){
+let givenNumber = promptNumber();
+let gameResult = didIWin(givenNumber);
+
+/* function gamePlay(){
     let givenNumber = promptNumber();
     let gameResult = didIWin(givenNumber);
     while (gameResult === false){
