@@ -1,64 +1,46 @@
+const rightNumber = 22
+
 function promptNumber() {
-    let result = Number(prompt('Devine un nombre'))
+    let saisie = prompt('Devine un nombre');
+    saisie = parseInt(saisie);
+    while (isNaN(saisie) ) {
+        console.log('Not a Number !')
+       saisie = alert("Ce n'est pas un nombre !")
+       return promptNumber()
+    }
+    console.log(saisie);
+    return saisie;
+}
+
+/* function didIWin(number) {
+    let result;
+    let message;
+    if (number === rightNumber) {
+        message = 'Bravo ! Vous avez deviné le nombre';
+        result = true;
+    } else if (number > rightNumber) {
+        message = 'Plus petit !';
+        result = false;
+    } else if (number < rightNumber) {
+        message = 'Plus grand !';
+        result = false;
+    } else {} 
+    alert(message)
     return result
 }
 
-function didIWin (number) {
-    if (number === 22) {
-        console.log('validation passed');
-        return true;
-    } else {
-        console.log('validation failed');
-        return false;
+function gamePlay(){
+    let givenNumber = promptNumber();
+    let gameResult = didIWin(givenNumber);
+    while (gameResult === false){
+        // appel récursif : appelle la fonction dans la fonction 
+        gamePlay()
     }
 }
 
-/* function gamePlay () {
-    if (numberValidation === true) {
-        return resultat.innerText = 'Bravo ! Vous avez deviné le nombre';
-    } else {
-        promptNumber();
-    }
-} */
-
-function gamePlay () {
-    while (numberValidation !== true) {
-        promptNumber();
-    }
-    return resultat.innerText = 'Bravo ! Vous avez deviné le nombre';
-}
-
-let givenNumber = promptNumber()
-let numberValidation = didIWin(givenNumber)
-const resultat = document.querySelector('#winOrNot')
-
-console.log(givenNumber)
-console.log(numberValidation)
-
-gamePlay()
-
-/* function gamePlay () {    
-    console.log(givenNumber)
-    console.log(numberValidation)
-    while (numberValidation !== true) {
-        return resultat.innerText = 'Essaye encore !'
-    }
-    //return resultat.innerText = didIWin(givenNumber)
-    return resultat.innerText = 'Bravo ! Vous avez deviné le nombre'; */
+gamePlay() */
 
 
 
-/* 
-function didIWin (givenNumber) {
-    let result
-    if (givenNumber === 22) {
-        result = 'Bravo ! Vous avez deviné le nombre';
-    } else if (givenNumber > 22) {
-        result = 'Plus petit';  
-    } else {
-        result = 'Plus grand';
-    }
-    return result;
-} */
 
 
