@@ -8,7 +8,7 @@ function promptNumber() {
        saisie = alert("Ce n'est pas un nombre !")
        return promptNumber()
     }
-    console.log(saisie);
+    //console.log(saisie);
     return saisie;
 }
 
@@ -26,23 +26,24 @@ function didIWin(number) {
         result = false;
     } else {} 
     alert(message)
-    console.log(message)
+    console.log(result)
     return result
 }
 
-let givenNumber = promptNumber();
-let gameResult = didIWin(givenNumber);
-
-/* function gamePlay(){
+function gamePlay(){
     let givenNumber = promptNumber();
     let gameResult = didIWin(givenNumber);
+    // tester ici le true false, pour le sortir de la fonction didIWin
+
     while (gameResult === false){
         // appel récursif : appelle la fonction dans la fonction 
         gamePlay()
-    }
+    } 
+    console.log("C'est fini !")
+ 
 }
 
-gamePlay() */
+gamePlay()
 
 
 
