@@ -1,9 +1,21 @@
-const rightNumber = 22
+
 
 function promptNumber() {
+    let saisie = prompt('Donne moi un nombre compris entre 0 et 50');
+    saisie = parseInt(saisie);
+    if (isNaN(saisie) || saisie < 0 || saisie > 50 ) {
+        console.log('Not a Number !')
+       saisie = alert("Il me faut vraiment un nombre compris entre 0 et 50 !")
+       return promptNumber()
+    }
+    //console.log(saisie);
+    return saisie;
+}
+
+function findNumber() {
     let saisie = prompt('Devine un nombre');
     saisie = parseInt(saisie);
-    while (isNaN(saisie) ) {
+    if (isNaN(saisie) || saisie < 0 || saisie > 50) {
         console.log('Not a Number !')
        saisie = alert("Ce n'est pas un nombre !")
        return promptNumber()
@@ -12,7 +24,7 @@ function promptNumber() {
     return saisie;
 }
 
-function didIWin(number) {
+function didIWin(number, rightNumber) {
     let result;
     let message;
     if (number === rightNumber) {
@@ -31,13 +43,13 @@ function didIWin(number) {
 }
 
 function gamePlay(){
-    let givenNumber = promptNumber();
-    let gameResult = didIWin(givenNumber);
-    // tester ici le true false, pour le sortir de la fonction didIWin
+    const rightNumber = promptNumber();
+    let gameResult = false;
 
-    while (gameResult === false){
-        // appel récursif : appelle la fonction dans la fonction 
-        gamePlay()
+    while (!gameResult){
+        let givenNumber = findNumber();
+        gameResult = didIWin(givenNumber, rightNumber);
+        //gamePlay()  // appel récursif : appelle la fonction dans la fonction 
     } 
     console.log("C'est fini !")
  
